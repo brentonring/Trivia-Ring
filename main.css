@@ -7,6 +7,10 @@ h1 {
   text-align: center;
 }
 
+/* How to center a div w/ help from https://blog.hubspot.com/website/center-div-css
+Top is pushing from the top of the screen, left is pushing from the left of the screen
+Transform: translate is moving the element */
+
 /* question div move to center-center */
 #questionbox {
   position: absolute;
@@ -64,6 +68,18 @@ h1 {
 }
 
 /* ring color */
+.ring {
+  height: 50%;
+  width: 50%;
+  border: 15px double #c200fb;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
 
 /* text box color */
 
