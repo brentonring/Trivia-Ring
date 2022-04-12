@@ -1,0 +1,72 @@
+body {
+  background-color: #f6e8ea;
+}
+
+h1 {
+  color: #c200fb;
+  text-align: center;
+}
+
+/* question div move to center-center */
+#questionbox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #c200fb;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+}
+/* move answer boxes to top, right, bottom, left */
+#answer1 {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #c200fb;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+}
+
+#answer2 {
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #c200fb;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+}
+
+#answer3 {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #c200fb;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+}
+
+#answer4 {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #c200fb;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+}
+
+/* ring color */
+
+/* text box color */
+
+/* green to use when question correct */
+
+/* red to use when question incorrect */
