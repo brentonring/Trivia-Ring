@@ -26,7 +26,7 @@ Transform: translate is moving the element */
 #answer1 {
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 15%;
   transform: translate(-50%, -50%);
   border: 5px solid #c200fb;
   padding: 10px;
@@ -48,7 +48,7 @@ Transform: translate is moving the element */
 #answer3 {
   position: absolute;
   left: 50%;
-  top: 75%;
+  top: 85%;
   transform: translate(-50%, -50%);
   border: 5px solid #c200fb;
   padding: 10px;
@@ -69,9 +69,9 @@ Transform: translate is moving the element */
 
 /* ring color */
 .ring {
-  height: 50%;
+  height: 70%;
   width: 50%;
-  border: 15px double #c200fb;
+  border: 20px solid #c200fb;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -84,5 +84,31 @@ Transform: translate is moving the element */
 /* text box color */
 
 /* green to use when question correct */
+.ringCorrect {
+  height: 70%;
+  width: 50%;
+  background-color: #16db65;
+  border: 20px solid #16db65;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
 
 /* red to use when question incorrect */
+.ringIncorrect {
+  height: 70%;
+  width: 50%;
+  background-color: #fe5448;
+  border: 20px solid #fe5448;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
