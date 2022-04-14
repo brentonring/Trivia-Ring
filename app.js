@@ -1,5 +1,5 @@
 // Trivia question API
-async function getTriviaQuestions() {
+async function getTrivia() {
     let response = await fetch('https://opentdb.com/api.php?amount=10&type=multiple')
     let returns = await response.json()
     let resultsArray = await returns.results
@@ -7,15 +7,26 @@ async function getTriviaQuestions() {
     console.log(resultsArray);
     // console.log(returns.results[0].question)
 
+    // Get array of questions
+    const questionArray = [];
     for (let i = 0; i < resultsArray.length; i++) {
-        let questions = resultsArray[i].question;
-        console.log(questions);
+        questionArray.push(resultsArray[i].question);
+        // String(questions);
+        console.log(questionArray)
         let questionBox = document.getElementById('questionbox');
-        questionBox.append(questions)
+        questionBox.append(questionArray[i]);
     }
+
+    // Get array of correct answers
+    // const correctArray = 
 }
-getTriviaQuestions()
+getTrivia()
+
 // Choose answer with mouse click
+// const answerBoxes = document.getElementsByClassName('answers')
+// window.onload = () => {
+//     answerBoxes.addEventListener("click")
+// }
 
 // Choose answer with arrow keys
 

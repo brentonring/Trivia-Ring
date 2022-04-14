@@ -1,5 +1,6 @@
 body {
   background-color: #f6e8ea;
+  font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -21,6 +22,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
+  max-width: 35%;
 }
 /* move answer boxes to top, right, bottom, left */
 #answer1 {
