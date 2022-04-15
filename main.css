@@ -6,6 +6,30 @@ body {
 h1 {
   color: #c200fb;
   text-align: center;
+  background-color: #ffbc0a;
+}
+
+#ques {
+  color: #c200fb;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  font-size: 2em;
+  background-color: #ffbc0a;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+#points {
+  color: #c200fb;
+  position: absolute;
+  right: 15%;
+  top: 15%;
+  font-size: 2em;
+  background-color: #ffbc0a;
+  border-radius: 50%;
+  padding: 10px;
+  word-wrap: normal;
 }
 
 /* How to center a div w/ help from https://blog.hubspot.com/website/center-div-css
@@ -22,7 +46,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
-  max-width: 35%;
+  max-width: 25%;
 }
 /* move answer boxes to top, right, bottom, left */
 #answer1 {
@@ -34,6 +58,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
+  width: 15%;
 }
 
 #answer2 {
@@ -45,6 +70,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
+  width: 15%;
 }
 
 #answer3 {
@@ -56,6 +82,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
+  width: 15%;
 }
 
 #answer4 {
@@ -67,6 +94,7 @@ Transform: translate is moving the element */
   padding: 10px;
   border-radius: 50%;
   background-color: #ffbc0a;
+  width: 15%;
 }
 
 /* ring color */
