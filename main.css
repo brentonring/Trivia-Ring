@@ -15,21 +15,23 @@ h1 {
   left: 15%;
   top: 15%;
   font-size: 2em;
-  background-color: #ffbc0a;
+  border: 5px solid #ffbc0a;
+  /* background-color: #ffbc0a; */
   border-radius: 50%;
-  padding: 10px;
+  padding: 20px;
 }
 
 #points {
   color: #c200fb;
   position: absolute;
-  right: 15%;
-  top: 15%;
+  right: 13%;
+  top: 13%;
   font-size: 2em;
-  background-color: #ffbc0a;
+  border: 5px solid #ffbc0a;
   border-radius: 50%;
-  padding: 10px;
+  padding: 20px;
   word-wrap: normal;
+  text-align: center;
 }
 
 /* How to center a div w/ help from https://blog.hubspot.com/website/center-div-css
@@ -43,10 +45,11 @@ Transform: translate is moving the element */
   top: 50%;
   transform: translate(-50%, -50%);
   border: 5px solid #c200fb;
-  padding: 10px;
+  padding: 20px;
   border-radius: 50%;
   background-color: #ffbc0a;
   max-width: 25%;
+  text-align: center;
 }
 /* move answer boxes to top, right, bottom, left */
 #answer1 {
@@ -54,11 +57,6 @@ Transform: translate is moving the element */
   left: 50%;
   top: 15%;
   transform: translate(-50%, -50%);
-  border: 5px solid #c200fb;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: #ffbc0a;
-  width: 15%;
 }
 
 #answer2 {
@@ -66,11 +64,6 @@ Transform: translate is moving the element */
   left: 75%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 5px solid #c200fb;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: #ffbc0a;
-  width: 15%;
 }
 
 #answer3 {
@@ -78,11 +71,6 @@ Transform: translate is moving the element */
   left: 50%;
   top: 85%;
   transform: translate(-50%, -50%);
-  border: 5px solid #c200fb;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: #ffbc0a;
-  width: 15%;
 }
 
 #answer4 {
@@ -90,8 +78,11 @@ Transform: translate is moving the element */
   left: 25%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.answers {
   border: 5px solid #c200fb;
-  padding: 10px;
+  padding: 20px;
   border-radius: 50%;
   background-color: #ffbc0a;
   width: 15%;
@@ -99,8 +90,8 @@ Transform: translate is moving the element */
 
 /* ring color */
 .ring {
-  height: 70%;
-  width: 50%;
+  height: 69%;
+  width: 48%;
   border: 20px solid #c200fb;
   border-radius: 50%;
   display: inline-block;
@@ -115,30 +106,18 @@ Transform: translate is moving the element */
 
 /* green to use when question correct */
 .ringCorrect {
-  height: 70%;
-  width: 50%;
-  background-color: #16db65;
   border: 20px solid #16db65;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
 }
 
 /* red to use when question incorrect */
 .ringIncorrect {
-  height: 70%;
-  width: 50%;
-  background-color: #fe5448;
   border: 20px solid #fe5448;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+}
+
+.correct {
+  background-color: #16db65;
+}
+
+.incorrect {
+  background-color: #fe5448;
 }
