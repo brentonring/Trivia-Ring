@@ -4,8 +4,8 @@ async function getTrivia() {
     let returns = await response.json()
     let resultsArray = await returns.results
 
+
     console.log(resultsArray);
-    // console.log(returns.results[0].question)
 
     // Get array of questions
     const questionArray = [];
@@ -44,53 +44,73 @@ async function getTrivia() {
     }
     console.log(incorrectArray3)
 
-    function appendTrivia(index) {
-        let questionBox = document.getElementById('questionbox');
-        questionBox.append(questionArray[index]);
-    
-        let correctBox = document.getElementById('answer1');
-        correctBox.append(correctArray[index]);
-    
-        let incorrectBox1 = document.getElementById('answer2');
-        incorrectBox1.append(incorrectArray1[index]);
-    
-        let incorrectBox2 = document.getElementById('answer3');
-        incorrectBox2.append(incorrectArray2[index]);
-    
-        let incorrectBox3 = document.getElementById('answer4');
-        incorrectBox3.append(incorrectArray3[index]);
-    }
-    appendTrivia(0)
+function appendTrivia(index) {
+    let questionBox = document.getElementById('questionbox');
+    questionBox.textContent = questionArray[index];
+
+    let correctBox = document.getElementById('answer1');
+    correctBox.textContent = correctArray[index];
+
+    let incorrectBox1 = document.getElementById('answer2');
+    incorrectBox1.textContent = incorrectArray1[index];
+
+    let incorrectBox2 = document.getElementById('answer3');
+    incorrectBox2.textContent = incorrectArray2[index];
+
+    let incorrectBox3 = document.getElementById('answer4');
+    incorrectBox3.textContent = incorrectArray3[index];
 }
-getTrivia()
+// Start game
+appendTrivia(0)
 
 
 // Choose answer with mouse click
 let correctAnswerBox = document.getElementById('answer1')
 const iAnswerBoxes = document.getElementsByClassName('iAnswers')
 
-window.onload = () => {
-    correct = () => {
-        correctAnswerBox.classList.add('correct')
-        addPoints()
-        document.getElementById('ring').classList.add('ringCorrect')
-    }
-    
-    incorrect = (evt) => {
-        evt.target.classList.add('incorrect')
-        document.getElementById('ring').classList.add('ringIncorrect')
-        correctAnswerBox.classList.add('correct')
-    }
+
+correct = () => {
+    correctAnswerBox.classList.add('correct')
+    addPoints()
+    document.getElementById('ring').classList.add('ringCorrect')
+    nextQuestion()
+}
+
+incorrect = (evt) => {
+    evt.target.classList.add('incorrect')
+    document.getElementById('ring').classList.add('ringIncorrect')
+    correctAnswerBox.classList.add('correct')
+    nextQuestion()
+}
+for(let i=0; i<iAnswerBoxes.length; i++) {
+    iAnswerBoxes[i].addEventListener("click", incorrect, false)
+}
+correctAnswerBox = document.getElementById('answer1')
+correctAnswerBox.addEventListener("click", correct, false)
+
+nextQuestion = () => {
+    correctAnswerBox.classList.add('wait');
     for(let i=0; i<iAnswerBoxes.length; i++) {
-        iAnswerBoxes[i].addEventListener("click", incorrect, false)
-    }
-    correctAnswerBox = document.getElementById('answer1')
-    correctAnswerBox.addEventListener("click", correct, false)
+        iAnswerBoxes[i].classList.add('wait')}
+    setTimeout(() => {
+        correctAnswerBox.classList.remove('wait');
+        for(let i=0; i<iAnswerBoxes.length; i++) {
+            iAnswerBoxes[i].classList.remove('wait')
+        };
+        incrementQues()
+        let index = quesNumber-1
+        appendTrivia(index);
+        document.getElementById('ring').classList.remove('ringCorrect', 'ringIncorrect');
+        correctAnswerBox.classList.remove('correct');
+        for(let i=0; i<iAnswerBoxes.length; i++) {
+            iAnswerBoxes[i].classList.remove('incorrect')};
+        }
+        ,2000)
 }
 
 // Choose answer with arrow keys
 
-// Turn ring green with correct answer, wrong if incorrect
+// Turn ring green with correct answer, red if incorrect
 
 // Give user ten points for correct answer, zero for incorrect
 // score +=10
@@ -100,6 +120,20 @@ let pts = 0
 
 addPoints = () => {
     pts += 10
-    let pointBox = document.getElementById('points')
-    pointBox.textContent = pts
+    let pointsBox = document.getElementById('points')
+    pointsBox.textContent = pts
 }
+
+// Keep track of question number
+let quesNumber = 1
+
+incrementQues = () => {
+    quesNumber++
+    let quesNumberBox = document.getElementById('ques')
+    quesNumberBox.textContent = quesNumber + "/10"
+}
+
+// Fix special characters
+
+}
+getTrivia()

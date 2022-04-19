@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="app.js"></script>
     <link rel="stylesheet" href="main.css" />
     <title>The Ring of Trivia</title>
   </head>
   <body>
+    <!-- Ring that connects all four answers -->
+    <span id="ring" class="ring"></span>
     <main>
       <h1>The Ring of Trivia</h1>
 
@@ -21,13 +22,14 @@
       <button id="answer3" class="answers iAnswers"></button>
       <button id="answer4" class="answers iAnswers"></button>
 
-      <!-- Ring that connects all four answers -->
-      <span id="ring" class="ring"></span>
-
       <!-- Div for point total -->
-      <div id="points">0<br /><small>points</small></div>
+      <div id="pointsbox">
+        <div id="points">0</div>
+        <div><small>points</small></div>
+      </div>
       <!-- Div for question number/10 -->
-      <div id="ques">0/10</div>
+      <div id="ques">1/10</div>
     </main>
   </body>
+  <script src="app.js"></script>
 </html>

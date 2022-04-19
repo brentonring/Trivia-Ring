@@ -19,19 +19,26 @@ h1 {
   /* background-color: #ffbc0a; */
   border-radius: 50%;
   padding: 20px;
+  height: 75px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#points {
+#pointsbox {
   color: #c200fb;
   position: absolute;
-  right: 13%;
-  top: 13%;
+  right: 15%;
+  top: 15%;
   font-size: 2em;
   border: 5px solid #ffbc0a;
   border-radius: 50%;
   padding: 20px;
   word-wrap: normal;
   text-align: center;
+  height: 75px;
+  width: 75px;
 }
 
 /* How to center a div w/ help from https://blog.hubspot.com/website/center-div-css
@@ -45,7 +52,7 @@ Transform: translate is moving the element */
   top: 50%;
   transform: translate(-50%, -50%);
   border: 5px solid #c200fb;
-  padding: 20px;
+  padding: 25px;
   border-radius: 50%;
   background-color: #ffbc0a;
   max-width: 25%;
@@ -121,3 +128,11 @@ Transform: translate is moving the element */
 .incorrect {
   background-color: #fe5448;
 }
+
+.wait {
+  pointer-events: none;
+}
+
+/* .finish {
+
+} */
