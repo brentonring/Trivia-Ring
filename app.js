@@ -135,5 +135,12 @@ incrementQues = () => {
 
 // Fix special characters
 
+
+
+// Finish game, show user their score
+
+
+
 }
 getTrivia()
+he.decode(questionArray[0])
