@@ -6,41 +6,37 @@ async function getTrivia() {
 
 
     console.log(resultsArray);
-
+    // Fix special characters
     // Get array of questions
     const questionArray = [];
     for (let i = 0; i < resultsArray.length; i++) {
-        questionArray.push(resultsArray[i].question);
-        // return questionArray[i];
+        questionArray.push(he.decode(resultsArray[i].question));
     }
     console.log(questionArray)
 
     // Get array of correct answers
     const correctArray = [];
     for (let i=0; i<resultsArray.length; i++) {
-        correctArray.push(resultsArray[i].correct_answer);
-        // return correctArray[i];
+        correctArray.push(he.decode(resultsArray[i].correct_answer));
     }
     console.log(correctArray)
 
+    // Get arrays of incorrect answers
     const incorrectArray1 = [];
     for (let i=0; i<resultsArray.length; i++) {
-        incorrectArray1.push(resultsArray[i].incorrect_answers[0]);
-        // return incorrectArray1[i];
+        incorrectArray1.push(he.decode(resultsArray[i].incorrect_answers[0]));
     }
     console.log(incorrectArray1)
 
     const incorrectArray2 = [];
     for (let i=0; i<resultsArray.length; i++) {
-        incorrectArray2.push(resultsArray[i].incorrect_answers[1]);
-        // return incorrectArray2[i];
+        incorrectArray2.push(he.decode(resultsArray[i].incorrect_answers[1]));
     }
     console.log(incorrectArray2)
 
     const incorrectArray3 = [];
     for (let i=0; i<resultsArray.length; i++) {
-        incorrectArray3.push(resultsArray[i].incorrect_answers[2]);
-        // return incorrectArray3[i];
+        incorrectArray3.push(he.decode(resultsArray[i].incorrect_answers[2]));
     }
     console.log(incorrectArray3)
 
@@ -68,25 +64,52 @@ appendTrivia(0)
 let correctAnswerBox = document.getElementById('answer1')
 const iAnswerBoxes = document.getElementsByClassName('iAnswers')
 
+// Keep track of question number
+let quesNumber = 1
 
-correct = () => {
-    correctAnswerBox.classList.add('correct')
+incrementQues = () => {
+    quesNumber++
+    let quesNumberBox = document.getElementById('ques')
+    quesNumberBox.textContent = quesNumber + "/10"
+}
+
+
+correct = (evt) => {
+    evt.target.classList.add('correct')
     addPoints()
     document.getElementById('ring').classList.add('ringCorrect')
+    if(quesNumber<10) {
     nextQuestion()
+    } else {
+        finish()
+    }
 }
 
 incorrect = (evt) => {
     evt.target.classList.add('incorrect')
     document.getElementById('ring').classList.add('ringIncorrect')
     correctAnswerBox.classList.add('correct')
-    nextQuestion()
+    if(quesNumber<10) {
+        nextQuestion()
+        } else {
+            finish()
+        }    
 }
+
+// Check answer function
+checkAnswer = (evt) => {
+    let correctAnswer = correctArray[quesNumber-1]
+    if (evt.target.innerHTML===correctAnswer) {
+        correct(evt)
+    } else {
+        incorrect(evt)
+    }
+}
+
 for(let i=0; i<iAnswerBoxes.length; i++) {
-    iAnswerBoxes[i].addEventListener("click", incorrect, false)
+    iAnswerBoxes[i].addEventListener("click", checkAnswer, false)
 }
-correctAnswerBox = document.getElementById('answer1')
-correctAnswerBox.addEventListener("click", correct, false)
+correctAnswerBox.addEventListener("click", checkAnswer, false)
 
 nextQuestion = () => {
     correctAnswerBox.classList.add('wait');
@@ -105,7 +128,7 @@ nextQuestion = () => {
         for(let i=0; i<iAnswerBoxes.length; i++) {
             iAnswerBoxes[i].classList.remove('incorrect')};
         }
-        ,2000)
+        ,4000)
 }
 
 // Choose answer with arrow keys
@@ -124,23 +147,22 @@ addPoints = () => {
     pointsBox.textContent = pts
 }
 
-// Keep track of question number
-let quesNumber = 1
-
-incrementQues = () => {
-    quesNumber++
-    let quesNumberBox = document.getElementById('ques')
-    quesNumberBox.textContent = quesNumber + "/10"
-}
-
-// Fix special characters
-
 
 
 // Finish game, show user their score
+finish = () => {
+    document.getElementById('finalscore').textContent = pts
+    setTimeout (() => {
+        document.getElementById('finish').removeAttribute("hidden")
+        document.getElementsByTagName('main')[0].setAttribute('hidden', false)
+        document.getElementById('ring').classList.add('ringFinish')
+        document.getElementById('replay').addEventListener("click", playAgain, false)
+    }, 4000)
+}
 
-
+playAgain = () => {
+    location.reload()
+}
 
 }
 getTrivia()
-he.decode(questionArray[0])

@@ -9,10 +9,7 @@
   </head>
   <body>
     <!-- Ring that connects all four answers -->
-    <span id="ring" class="ring"></span>
     <main>
-      <h1>The Ring of Trivia</h1>
-
       <!-- Div in the middle for trivia question -->
       <div id="questionbox"></div>
 
@@ -30,6 +27,15 @@
       <!-- Div for question number/10 -->
       <div id="ques">1/10</div>
     </main>
+    <h1>The Ring of Trivia</h1>
+    <span id="ring" class="ring"></span>
+    <div id="finish" hidden>
+      <div>Your Final Score:</div>
+      <div id="finalscore">100</div>
+      <br />
+      <button id="replay">Play Again</button>
+    </div>
   </body>
   <script src="app.js"></script>
+  <script src="./node_modules/he/he.js"></script>
 </html>

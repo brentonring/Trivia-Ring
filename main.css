@@ -123,6 +123,8 @@ Transform: translate is moving the element */
 
 .correct {
   background-color: #16db65;
+  font-size: x-large;
+  min-width: none;
 }
 
 .incorrect {
@@ -133,6 +135,39 @@ Transform: translate is moving the element */
   pointer-events: none;
 }
 
-/* .finish {
+/* Div with final score in it */
+#finish {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 5px solid #c200fb; */
+  padding: 25px;
+  border-radius: 50%;
+  /* background-color: #ffbc0a; */
+  max-width: 45%;
+  text-align: center;
+  font-size: 4em;
+}
 
-} */
+/* The ring when the game is over */
+.ringFinish {
+  height: 69%;
+  width: 48%;
+  border: 20px solid #c200fb;
+  border-radius: 50%;
+  background-color: #ffbc0a;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#replay {
+  font-size: xx-large;
+  background-color: #c200fb;
+  /* color: #f6e8ea; */
+  font-family: "Poppins", sans-serif;
+}
