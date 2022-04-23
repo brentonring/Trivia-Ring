@@ -40,39 +40,55 @@ async function getTrivia() {
     }
     console.log(incorrectArray3)
 
-function appendTrivia(index) {
-    let questionBox = document.getElementById('questionbox');
-    questionBox.textContent = questionArray[index];
+const answerBoxes = document.getElementsByClassName('answers')
+let answerBoxesArray = [];
+for (let i = 0; i < answerBoxes.length; i++) {
+    answerBoxesArray.push(answerBoxes[i]);
+}
+console.log(answerBoxesArray)
+// console.log(answerBoxesArray.splice(answerBoxesArray[Math.floor(Math.random()*answerBoxesArray.length)],2))
 
-    let correctBox = document.getElementById('answer1');
-    correctBox.textContent = correctArray[index];
-
-    let incorrectBox1 = document.getElementById('answer2');
-    incorrectBox1.textContent = incorrectArray1[index];
-
-    let incorrectBox2 = document.getElementById('answer3');
-    incorrectBox2.textContent = incorrectArray2[index];
-
-    let incorrectBox3 = document.getElementById('answer4');
-    incorrectBox3.textContent = incorrectArray3[index];
+function appendTrivia(i, array) {
+    answerBoxesArray = []
+        for (let i=0; i < answerBoxes.length; i++) {
+            answerBoxesArray.push(answerBoxes[i]);
+            }            
+    console.log(answerBoxesArray)
+    document.getElementById('questionbox').textContent = questionArray[i];
+    while (array.length) {
+        let random = Math.floor( Math.random()*array.length )
+        console.log( array[random] ); // Log the item
+        array[random].textContent = correctArray[i]
+        array.splice( random, 1 ); // Remove the item from the array
+        random = Math.floor( Math.random()*array.length )
+        console.log( array[random] ); // Log the item
+        array[random].textContent = incorrectArray1[i]
+        array.splice( random, 1 ); // Remove the item from the array
+        random = Math.floor( Math.random()*array.length )
+        console.log( array[random] ); // Log the item
+        array[random].textContent = incorrectArray2[i]
+        array.splice( random, 1 ); // Remove the item from the array
+        random = Math.floor( Math.random()*array.length )
+        console.log( array[random] ); // Log the item
+        array[random].textContent = incorrectArray3[i]
+        array.splice( random, 1 )
+    }
 }
 // Start game
-appendTrivia(0)
-
-
-// Choose answer with mouse click
-let correctAnswerBox = document.getElementById('answer1')
-const iAnswerBoxes = document.getElementsByClassName('iAnswers')
+appendTrivia(0, answerBoxesArray)
 
 // Keep track of question number
 let quesNumber = 1
-
 incrementQues = () => {
     quesNumber++
     let quesNumberBox = document.getElementById('ques')
     quesNumberBox.textContent = quesNumber + "/10"
 }
 
+// Choose answer with mouse click
+let correctAnswer = correctArray[quesNumber-1]
+let correctAnswerBox = document.getElementsByClassName('answers')[0]
+// let correctAnswerBox = answerBoxes.filter(cor => answerBoxes.innerHTML===correctAnswer)
 
 correct = (evt) => {
     evt.target.classList.add('correct')
@@ -88,7 +104,17 @@ correct = (evt) => {
 incorrect = (evt) => {
     evt.target.classList.add('incorrect')
     document.getElementById('ring').classList.add('ringIncorrect')
-    correctAnswerBox.classList.add('correct')
+    let correctAnswer = correctArray[quesNumber-1]
+    console.log(correctAnswer)
+    if (document.getElementById('answer1').textContent === correctAnswer) {
+        document.getElementById('answer1').classList.add('correct')
+    } else if (document.getElementById('answer2').textContent === correctAnswer) {
+        document.getElementById('answer2').classList.add('correct')
+    } else if (document.getElementById('answer3').textContent === correctAnswer) {
+        document.getElementById('answer3').classList.add('correct')
+    } else if (document.getElementById('answer4').textContent === correctAnswer) {
+        document.getElementById('answer4').classList.add('correct')
+    }
     if(quesNumber<10) {
         nextQuestion()
         } else {
@@ -99,34 +125,30 @@ incorrect = (evt) => {
 // Check answer function
 checkAnswer = (evt) => {
     let correctAnswer = correctArray[quesNumber-1]
-    if (evt.target.innerHTML===correctAnswer) {
+    if (evt.target.textContent===correctAnswer) {
         correct(evt)
     } else {
         incorrect(evt)
     }
 }
 
-for(let i=0; i<iAnswerBoxes.length; i++) {
-    iAnswerBoxes[i].addEventListener("click", checkAnswer, false)
+for(let i=0; i<answerBoxes.length; i++) {
+    answerBoxes[i].addEventListener("click", checkAnswer, false)
 }
-correctAnswerBox.addEventListener("click", checkAnswer, false)
 
 nextQuestion = () => {
-    correctAnswerBox.classList.add('wait');
-    for(let i=0; i<iAnswerBoxes.length; i++) {
-        iAnswerBoxes[i].classList.add('wait')}
+    for(let i=0; i<answerBoxes.length; i++) {
+        answerBoxes[i].classList.add('wait')}
     setTimeout(() => {
-        correctAnswerBox.classList.remove('wait');
-        for(let i=0; i<iAnswerBoxes.length; i++) {
-            iAnswerBoxes[i].classList.remove('wait')
+        for(let i=0; i<answerBoxes.length; i++) {
+            answerBoxes[i].classList.remove('wait')
         };
         incrementQues()
         let index = quesNumber-1
-        appendTrivia(index);
+        appendTrivia(index, answerBoxesArray);
         document.getElementById('ring').classList.remove('ringCorrect', 'ringIncorrect');
-        correctAnswerBox.classList.remove('correct');
-        for(let i=0; i<iAnswerBoxes.length; i++) {
-            iAnswerBoxes[i].classList.remove('incorrect')};
+        for(let i=0; i<answerBoxes.length; i++) {
+            answerBoxes[i].classList.remove('incorrect', 'correct')};
         }
         ,4000)
 }
