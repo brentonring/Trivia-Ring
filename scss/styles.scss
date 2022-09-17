@@ -136,6 +136,7 @@ h1 {
   
 .incorrect {
     background-color: $red;
+    filter: drop-shadow(0 0 0.75rem $red)
 }
   
 .wait {
@@ -174,7 +175,7 @@ h1 {
 
 #replay {
     font-size: xx-large;
-    background-color: $purple;
+    background-color: $background-color;
     /* color: #f6e8ea; */
     font-family: $font-style;
 }

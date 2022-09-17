@@ -132,6 +132,7 @@ h1 {
 
 .incorrect {
   background-color: #ED1C24;
+  filter: drop-shadow(0 0 0.75rem #ED1C24);
 }
 
 .wait {
@@ -170,7 +171,7 @@ h1 {
 
 #replay {
   font-size: xx-large;
-  background-color: #7B287D;
+  background-color: #F4F3EE;
   /* color: #f6e8ea; */
   font-family: "Poppins", sans-serif;
 }/*# sourceMappingURL=styles.css.map */
