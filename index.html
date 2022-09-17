@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="scss/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/2c0283cf22.js"
+      crossorigin="anonymous"
+    ></script>
     <title>The Ring of Trivia</title>
   </head>
   <body>
+    <h1>The Ring of Trivia</h1>
     <!-- Ring that connects all four answers -->
     <main>
       <!-- Div in the middle for trivia question -->
@@ -27,8 +32,10 @@
       <!-- Div for question number/10 -->
       <div id="ques">1/10</div>
     </main>
-    <h1>The Ring of Trivia</h1>
     <span id="ring" class="ring"></span>
+    <div id="start" hidden>
+      <button><i class="fa-solid fa-play"></i></button>
+    </div>
     <div id="finish" hidden>
       <div>Your Final Score:</div>
       <div id="finalscore">100</div>

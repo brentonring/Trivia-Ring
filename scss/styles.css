@@ -1,21 +1,20 @@
 body {
-  background-color: #f6e8ea;
+  background-color: #F4F3EE;
   font-family: "Poppins", sans-serif;
 }
 
 h1 {
-  color: #c200fb;
+  color: #7B287D;
   text-align: center;
-  background-color: #ffbc0a;
 }
 
 #ques {
-  color: #c200fb;
+  color: #7B287D;
   position: absolute;
-  left: 15%;
-  top: 15%;
+  left: 15vw;
+  top: 15vh;
   font-size: 2em;
-  border: 5px solid #ffbc0a;
+  border: 5px solid #E59500;
   /* background-color: #ffbc0a; */
   border-radius: 50%;
   padding: 20px;
@@ -27,12 +26,12 @@ h1 {
 }
 
 #pointsbox {
-  color: #c200fb;
+  color: #7B287D;
   position: absolute;
-  right: 15%;
-  top: 15%;
+  right: 15vw;
+  top: 15vh;
   font-size: 2em;
-  border: 5px solid #ffbc0a;
+  border: 5px solid #E59500;
   border-radius: 50%;
   padding: 20px;
   word-wrap: normal;
@@ -41,66 +40,28 @@ h1 {
   width: 75px;
 }
 
-/* How to center a div w/ help from https://blog.hubspot.com/website/center-div-css
-Top is pushing from the top of the screen, left is pushing from the left of the screen
-Transform: translate is moving the element */
-
-/* question div move to center-center */
-#questionbox {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 5px solid #c200fb;
-  padding: 25px;
-  border-radius: 50%;
-  background-color: #ffbc0a;
-  max-width: 25%;
-  text-align: center;
-}
-/* move answer boxes to top, right, bottom, left */
-#answer1 {
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  transform: translate(-50%, -50%);
-}
-
-#answer2 {
-  position: absolute;
-  left: 75%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#answer3 {
-  position: absolute;
-  left: 50%;
-  top: 85%;
-  transform: translate(-50%, -50%);
-}
-
-#answer4 {
-  position: absolute;
-  left: 25%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.answers {
-  border: 5px solid #c200fb;
-  padding: 20px;
-  border-radius: 50%;
-  background-color: #ffbc0a;
-  width: 15%;
-}
-
-/* ring color */
 .ring {
-  height: 69%;
-  width: 48%;
+  height: 50vh;
+  width: 50vw;
+  border-radius: 50%;
+  border: 20px solid #7B287D;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.ringCorrect {
+  border: 20px solid #04A777;
+}
+.ringIncorrect {
+  border: 20px solid #ED1C24;
+}
+.ringFinish {
   border: 20px solid #c200fb;
   border-radius: 50%;
+  background-color: #ffbc0a;
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -109,26 +70,68 @@ Transform: translate is moving the element */
   z-index: -1;
 }
 
-/* text box color */
-
-/* green to use when question correct */
-.ringCorrect {
-  border: 20px solid #16db65;
+#questionbox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #7B287D;
+  padding: 25px;
+  border-radius: 50%;
+  background-color: #E59500;
+  max-width: 25%;
+  text-align: center;
 }
 
-/* red to use when question incorrect */
-.ringIncorrect {
-  border: 20px solid #fe5448;
+/* move answer boxes to top, right, bottom, left */
+#answer1 {
+  position: absolute;
+  left: 50vw;
+  top: 25vh;
+  transform: translate(-50%, -50%);
+}
+
+#answer2 {
+  position: absolute;
+  left: 75vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+}
+
+#answer3 {
+  position: absolute;
+  left: 50vw;
+  top: 75vh;
+  transform: translate(-50%, -50%);
+}
+
+#answer4 {
+  position: absolute;
+  left: 25vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+}
+
+.answers {
+  border: 5px solid #7B287D;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: #E59500;
+  width: 15%;
+}
+.answers:hover {
+  filter: drop-shadow(0 0 0.75rem #7B287D);
 }
 
 .correct {
-  background-color: #16db65;
+  background-color: #04A777;
   font-size: x-large;
   min-width: none;
+  filter: drop-shadow(0 0 0.75rem #04A777);
 }
 
 .incorrect {
-  background-color: #fe5448;
+  background-color: #ED1C24;
 }
 
 .wait {
@@ -154,9 +157,9 @@ Transform: translate is moving the element */
 .ringFinish {
   height: 69%;
   width: 48%;
-  border: 20px solid #c200fb;
+  border: 20px solid #7B287D;
   border-radius: 50%;
-  background-color: #ffbc0a;
+  background-color: #E59500;
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -167,26 +170,7 @@ Transform: translate is moving the element */
 
 #replay {
   font-size: xx-large;
-  background-color: #c200fb;
+  background-color: #7B287D;
   /* color: #f6e8ea; */
   font-family: "Poppins", sans-serif;
-}
-
-#start {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  /* border: 5px solid #c200fb; */
-  padding: 25px;
-  border-radius: 50%;
-  /* background-color: #ffbc0a; */
-  max-width: 45%;
-  text-align: center;
-  font-size: 4em;
-}
-
-.fa-start {
-  background-color: #c200fb;
-  color: #c200fb;
-}
+}/*# sourceMappingURL=styles.css.map */
